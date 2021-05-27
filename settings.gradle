@@ -1,0 +1,5 @@
+rootProject.name = "android-navigation"
+include ':app'
+include ':feat-base'
+include ':feat-one'
+include ':feat-second'
