@@ -20,6 +20,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         configureObservables()
+        resolveArgs()
     }
 
     private fun configureObservables() {
@@ -30,16 +31,24 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
+    private fun resolveArgs() {
+        val userId = intent.extras!!.getString(USER_ID_ARG) // Not used in the example
+    }
+
     companion object {
 
-        fun launch(activity: Activity) {
-            val intent = Intent(activity, SecondActivity::class.java)
+        private const val USER_ID_ARG = "USER_ID_ARG"
+
+        fun launch(activity: Activity, userId: String) {
+            val intent = Intent(activity, SecondActivity::class.java).apply {
+                putExtra(USER_ID_ARG, userId)
+            }
             activity.startActivity(intent)
         }
     }
 }
 
-object GoToSecondActivity : Navigator {
+class GoToSecondActivity(private val userId: String) : Navigator {
 
-    override fun navigate(activity: Activity) { SecondActivity.launch(activity) }
+    override fun navigate(activity: Activity) { SecondActivity.launch(activity, userId) }
 }

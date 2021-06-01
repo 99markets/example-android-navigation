@@ -11,6 +11,6 @@ class DefaultNavigatorProvider : Navigator.Provider {
     override fun get(screen: Screen): Navigator = when (screen) {
         is Screen.HomeScreen -> GoToHomeScreen
         is Screen.FeatOneScreen -> GoToFirstActivity
-        is Screen.FeatTwoScreen -> GoToSecondActivity
+        is Screen.FeatTwoScreen -> GoToSecondActivity(screen.userId)
     }
 }

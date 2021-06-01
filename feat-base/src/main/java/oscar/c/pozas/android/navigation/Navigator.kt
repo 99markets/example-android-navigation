@@ -16,5 +16,6 @@ sealed class Screen {
 
     object HomeScreen : Screen()
     object FeatOneScreen : Screen()
-    class FeatTwoScreen(userId: String) : Screen()
+
+    class FeatTwoScreen(val userId: String) : Screen()
 }
