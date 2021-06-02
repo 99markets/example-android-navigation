@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -8,7 +8,6 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "oscar.c.pozas.android.feat_second"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
